@@ -19,32 +19,5 @@ public class Calculadora implements Operacoes{
         return escolhaUsuario;
     }
 
-    @Override
-    public void somar(double valor1, double valor2) {
-        double soma = valor1 + valor2;
-        System.out.printf("Total: %.2f\n", soma);
-    }
-
-    @Override
-    public void subtrair(double valor1, double valor2) {
-        double subtracao = valor1 - valor2;
-        System.out.printf("Total: %.2f\n", subtracao);
-    }
-
-
-     @Override
-     public void multiplicar(double valor1, double valor2){
-        double multiplicacao = valor1*valor2;
-         System.out.printf("Total: %.2f\n", multiplicacao);
-     }
-
-
-    @Override
-    public void dividir(double numerador, double denominador) {
-        double divisao = numerador/denominador;
-        System.out.printf("Total: %.2f\n", divisao);
-
-    }
-
 
 }

@@ -1,3 +1,4 @@
+
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -15,6 +16,9 @@ public class App {
 
         Calculadora calc = new Calculadora();
 
+        /// Criando uma variável enum de referência
+        OperacaoesEnum operacao;
+
         do {
 
             escolhaUsuario = calc.iniciarSistema();
@@ -26,7 +30,9 @@ public class App {
                     valor1 = sc.nextDouble();
                     System.out.print("Segundo Valor: ");
                     valor2 = sc.nextDouble();
-                    calc.somar(valor1, valor2);
+                    operacao = OperacaoesEnum.SOMA;
+                    System.out.println(operacao.calcular(valor1,valor2));
+
                     System.out.println("Deseja Continuar? (y|n)");
                     resp = sc.next().charAt(0);
                     if (resp == 'n') {
@@ -35,6 +41,7 @@ public class App {
                     } else {
                         System.out.println("\nRetornando ao Menu de Escolhas...\n");
                         calc.iniciarSistema();
+                        break;
                     }
 
 
@@ -44,7 +51,9 @@ public class App {
                     valor1 = sc.nextDouble();
                     System.out.print("Segundo Valor: ");
                     valor2 = sc.nextDouble();
-                    calc.subtrair(valor1, valor2);
+                    operacao = OperacaoesEnum.SUBTRACAO;
+                    System.out.println(operacao.calcular(valor1,valor2));
+
                     System.out.println("Deseja Continuar? (y|n)");
                     resp = sc.next().charAt(0);
                     if (resp == 'n') {
@@ -54,6 +63,7 @@ public class App {
                     } else {
                         System.out.println("\nRetornando ao Menu de Escolhas...\n");
                         calc.iniciarSistema();
+                        break;
                     }
 
 
@@ -63,7 +73,9 @@ public class App {
                     valor1 = sc.nextDouble();
                     System.out.print("Segundo valor: ");
                     valor2 = sc.nextDouble();
-                    calc.multiplicar(valor1, valor2);
+                    operacao = OperacaoesEnum.MULTIPLICACAO;
+                    System.out.println(operacao.calcular(valor1,valor2));
+
                     System.out.println("Deseja Continuar? (y|n)");
                     resp = sc.next().charAt(0);
                     if (resp == 'n') {
@@ -73,6 +85,7 @@ public class App {
                     } else {
                         System.out.println("\nRetornando ao Menu de Escolhas...\n");
                         calc.iniciarSistema();
+                        break;
                     }
 
 
@@ -83,7 +96,9 @@ public class App {
                     numerador = sc.nextDouble();
                     System.out.print("Denominador: ");
                     denominador = sc.nextDouble();
-                    calc.dividir(numerador, denominador);
+                    operacao = OperacaoesEnum.DIVISAO;
+                    System.out.println(operacao.calcular(numerador,denominador));
+
                     System.out.println("Deseja Continuar? (y|n)");
                     resp = sc.next().charAt(0);
                     if (resp == 'n') {
@@ -93,6 +108,7 @@ public class App {
                     } else {
                         System.out.println("\nRetornando ao Menu de Escolhas...\n");
                         calc.iniciarSistema();
+                        break;
                     }
 
                 case 5:
