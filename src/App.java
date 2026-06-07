@@ -10,118 +10,61 @@ public class App {
         Scanner sc = new Scanner(System.in);
 
         boolean sistemaAtivo = false;
-        int escolhaUsuario;
-        double valor1, valor2, numerador, denominador;
-        char resp;
 
         Calculadora calc = new Calculadora();
 
-        /// Criando uma variável enum de referência
-        OperacaoesEnum operacao;
+        double valora, valorb;
+
 
         do {
 
-            escolhaUsuario = calc.iniciarSistema();
+            int entradaUsuario = calc.iniciarSistema();
+            OperacaoEnum op = OperacaoEnum.traduzCodigo(entradaUsuario);
 
-            switch (escolhaUsuario) {
-                case 1:
+
+            switch (op) {
+                case SOMA:
                     System.out.println("Digite os valores de soma: ");
                     System.out.print("Primeiro valor: ");
-                    valor1 = sc.nextDouble();
+                    valora = sc.nextDouble();
                     System.out.print("Segundo Valor: ");
-                    valor2 = sc.nextDouble();
-                    operacao = OperacaoesEnum.SOMA;
-                    System.out.println(operacao.calcular(valor1,valor2));
+                    valorb = sc.nextDouble();
+                    calc.calcular(op, valora, valorb);
+                    System.out.println();
+                    calc.continuar();
 
-                    System.out.println("Deseja Continuar? (y|n)");
-                    resp = sc.next().charAt(0);
-                    if (resp == 'n') {
-                        sistemaAtivo = true;
-                        break;
-                    } else {
-                        System.out.println("\nRetornando ao Menu de Escolhas...\n");
-                        calc.iniciarSistema();
-                        break;
-                    }
-
-
-                case 2:
-                    System.out.println("Digite os valores de subtracao: ");
+                case SUBTRACAO:
+                    System.out.println("Digite os valores de soma: ");
                     System.out.print("Primeiro valor: ");
-                    valor1 = sc.nextDouble();
+                    valora = sc.nextDouble();
                     System.out.print("Segundo Valor: ");
-                    valor2 = sc.nextDouble();
-                    operacao = OperacaoesEnum.SUBTRACAO;
-                    System.out.println(operacao.calcular(valor1,valor2));
+                    valorb = sc.nextDouble();
+                    calc.calcular(op, valora, valorb);
+                    System.out.println();
+                    calc.continuar();
 
-                    System.out.println("Deseja Continuar? (y|n)");
-                    resp = sc.next().charAt(0);
-                    if (resp == 'n') {
-                        System.out.println("Saindo do sistema...");
-                        sistemaAtivo = true;
-                        break;
-                    } else {
-                        System.out.println("\nRetornando ao Menu de Escolhas...\n");
-                        calc.iniciarSistema();
-                        break;
-                    }
-
-
-                case 3:
-                    System.out.println("Digite os valores de Multiplicação: ");
+                case MULTIPLICACAO:
+                    System.out.println("Digite os valores de soma: ");
                     System.out.print("Primeiro valor: ");
-                    valor1 = sc.nextDouble();
-                    System.out.print("Segundo valor: ");
-                    valor2 = sc.nextDouble();
-                    operacao = OperacaoesEnum.MULTIPLICACAO;
-                    System.out.println(operacao.calcular(valor1,valor2));
+                    valora = sc.nextDouble();
+                    System.out.print("Segundo Valor: ");
+                    valorb = sc.nextDouble();
+                    calc.calcular(op, valora, valorb);
+                    System.out.println();
+                    calc.continuar();
 
-                    System.out.println("Deseja Continuar? (y|n)");
-                    resp = sc.next().charAt(0);
-                    if (resp == 'n') {
-                        System.out.println("Saindo do sistema...");
-                        sistemaAtivo = true;
-                        break;
-                    } else {
-                        System.out.println("\nRetornando ao Menu de Escolhas...\n");
-                        calc.iniciarSistema();
-                        break;
-                    }
-
-
-                case 4:
-
-                    System.out.println("Digite os valores de Divisão: ");
-                    System.out.print("Numerador: ");
-                    numerador = sc.nextDouble();
-                    System.out.print("Denominador: ");
-                    denominador = sc.nextDouble();
-                    operacao = OperacaoesEnum.DIVISAO;
-                    System.out.println(operacao.calcular(numerador,denominador));
-
-                    System.out.println("Deseja Continuar? (y|n)");
-                    resp = sc.next().charAt(0);
-                    if (resp == 'n') {
-                        System.out.println("Saindo do sistema...");
-                        sistemaAtivo = true;
-                        break;
-                    } else {
-                        System.out.println("\nRetornando ao Menu de Escolhas...\n");
-                        calc.iniciarSistema();
-                        break;
-                    }
-
-                case 5:
-                    System.out.println("Saindo do sistema...");
-                    sistemaAtivo = true;
-                    break;
-
-
+                case DIVISAO:
+                    System.out.println("Digite os valores de soma: ");
+                    System.out.print("Primeiro valor: ");
+                    valora = sc.nextDouble();
+                    System.out.print("Segundo Valor: ");
+                    valorb = sc.nextDouble();
+                    calc.calcular(op, valora, valorb);
+                    System.out.println();
+                    calc.continuar();
             }
 
-
         } while (!sistemaAtivo);
-
 
     }
 }
