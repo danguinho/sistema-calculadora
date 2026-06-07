@@ -4,48 +4,45 @@ public class Calculadora {
 
 
     Scanner sc = new Scanner(System.in);
-    boolean sistemaAtivo = false;
 
 
-    public int iniciarSistema() {
+    public void iniciarSistema() {
+        System.out.println();
         System.out.println("-----CALCULADORA------");
-        System.out.println("Selecione a operação que deseja" +
-                " realizar:");
-        System.out.println("|1| Soma.\n" +
-                "|2| Subtração.\n" +
-                "|3| Multiplicação.\n" +
-                "|4| Divisão\n");
-
-        int escolha = sc.nextInt();
-        return escolha;
+        System.out.println("Bem Vindo!");
+        System.out.println("Digite uma expressão de soma, subtração, multiplicação ou divisão: ");
+        System.out.println("Não esqueça do espaço entre os operadores e os números na equação.");
     }
 
 
-    public double calcular(OperacaoEnum op, double a, double b) {
+    public double calcular(double a, Operacao op, double b) {
         switch (op) {
-            case SOMA: return a + b;
-            case SUBTRACAO: return a - b;
-            case MULTIPLICACAO: return a * b;
-            case DIVISAO: return a / b;
+            case SOMA:
+                return a + b;
+            case SUBTRACAO:
+                return a - b;
+            case MULTIPLICACAO:
+                return a * b;
+            case DIVISAO:
+                return a / b;
+
         }
         return 0;
     }
 
 
-    public void continuar(){
+    public boolean continuar() {
         System.out.println("Deseja Continuar? (y|n)");
         char resp = sc.next().charAt(0);
         if (resp == 'n') {
-            sistemaAtivo = false;
+            System.out.println("\nFechando Programa!\n");
+            return true;
         } else {
             System.out.println("\nRetornando ao Menu de Escolhas...\n");
-            iniciarSistema();
-            sistemaAtivo = true;
+            return false;
         }
 
     }
-
-
 
 
 }

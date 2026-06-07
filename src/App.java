@@ -13,56 +13,17 @@ public class App {
 
         Calculadora calc = new Calculadora();
 
-        double valora, valorb;
-
 
         do {
 
-            int entradaUsuario = calc.iniciarSistema();
-            OperacaoEnum op = OperacaoEnum.traduzCodigo(entradaUsuario);
+            calc.iniciarSistema();
+            double a = sc.nextDouble();
+            Operacao operacao = Operacao.converterSinal(sc.next());
+            double b = sc.nextDouble();
+            double resultado = calc.calcular(a, operacao, b);
+            System.out.printf("Resultado: %.2f\n",resultado);
+            sistemaAtivo = calc.continuar();
 
-
-            switch (op) {
-                case SOMA:
-                    System.out.println("Digite os valores de soma: ");
-                    System.out.print("Primeiro valor: ");
-                    valora = sc.nextDouble();
-                    System.out.print("Segundo Valor: ");
-                    valorb = sc.nextDouble();
-                    calc.calcular(op, valora, valorb);
-                    System.out.println();
-                    calc.continuar();
-
-                case SUBTRACAO:
-                    System.out.println("Digite os valores de soma: ");
-                    System.out.print("Primeiro valor: ");
-                    valora = sc.nextDouble();
-                    System.out.print("Segundo Valor: ");
-                    valorb = sc.nextDouble();
-                    calc.calcular(op, valora, valorb);
-                    System.out.println();
-                    calc.continuar();
-
-                case MULTIPLICACAO:
-                    System.out.println("Digite os valores de soma: ");
-                    System.out.print("Primeiro valor: ");
-                    valora = sc.nextDouble();
-                    System.out.print("Segundo Valor: ");
-                    valorb = sc.nextDouble();
-                    calc.calcular(op, valora, valorb);
-                    System.out.println();
-                    calc.continuar();
-
-                case DIVISAO:
-                    System.out.println("Digite os valores de soma: ");
-                    System.out.print("Primeiro valor: ");
-                    valora = sc.nextDouble();
-                    System.out.print("Segundo Valor: ");
-                    valorb = sc.nextDouble();
-                    calc.calcular(op, valora, valorb);
-                    System.out.println();
-                    calc.continuar();
-            }
 
         } while (!sistemaAtivo);
 
