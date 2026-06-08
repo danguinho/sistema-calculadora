@@ -3,8 +3,8 @@ public enum Operacao {
     SOMA("+"),
     SUBTRACAO("-"),
     MULTIPLICACAO("*"),
-    DIVISAO("/");
-
+    DIVISAO("/"),
+    IGUAL("=");
 
     private final String sinal;
 

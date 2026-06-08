@@ -5,7 +5,6 @@ public class Calculadora {
 
     Scanner sc = new Scanner(System.in);
 
-
     public void iniciarSistema() {
         System.out.println();
         System.out.println("-----CALCULADORA------");
@@ -25,7 +24,8 @@ public class Calculadora {
                 return a * b;
             case DIVISAO:
                 return a / b;
-
+            case IGUAL:
+                break;
         }
         return 0;
     }
@@ -43,6 +43,10 @@ public class Calculadora {
         }
 
     }
+
+
+
+
 
 
 }
